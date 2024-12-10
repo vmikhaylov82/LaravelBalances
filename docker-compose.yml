@@ -1,0 +1,32 @@
+services:
+
+  php:
+    build:
+      context: .
+      dockerfile: ./app/Dockerfile
+    volumes:
+      - ./:/var/www 
+    container_name: php
+    restart: always
+    
+  nginx:
+    image: nginx:latest
+    ports: 
+      - 80:80
+    volumes:
+      - ./:/var/www/
+      - ./nginx:/etc/nginx/conf.d
+    container_name: nginx
+    restart: always
+
+  db:
+    image: mysql:8.0
+    restart: always
+    volumes:
+      - ./tmp/db:/var/lib/mysql
+    environment:
+      MYSQL_DATABASE: laraveltest
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - 8101:3306
+    container_name: db
