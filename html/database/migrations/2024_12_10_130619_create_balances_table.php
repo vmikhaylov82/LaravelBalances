@@ -17,9 +17,9 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id');
             //сумма транзакции
             $table->decimal('sum', 8, 2);
-            //статус: зачисление, списание, перевод, получение баланса
-            $table->enum('status', ['cashin', 'cashout', 'transfer_cashout', 'transfer_cashin', 'get_balance']);
-            //id пользователя принимающего участие в транзакциях со статусом перевод 
+            //статус: зачисление, списание, перевод (пополнение, списание), получение баланса
+            $table->enum('status', ['cashin', 'cashout', 'transfer_cashin', 'transfer_cashout', 'get_balance']);
+            //id пользователя принимающего участие в транзакциях с переводом 
             $table->unsignedBigInteger('user_id_transfer')->nullable(); 
             $table->timestamps();
         });

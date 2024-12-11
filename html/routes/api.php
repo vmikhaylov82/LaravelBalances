@@ -27,3 +27,7 @@ Route::post('/cashOut', [BalanceController::class, 'cashOut']);
 Route::post('/transfer', [BalanceController::class, 'transfer']);
 
 Route::get('/getBalance', [BalanceController::class, 'getBalance']);
+
+Route::get('/currencyConverter', [BalanceController::class, 'currencyConverter']);
+
+Route::get('/listTransactions', [BalanceController::class, 'listTransactions']);
