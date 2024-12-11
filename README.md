@@ -6,7 +6,7 @@ post
 http://localhost/LaravelBalances/public/api/cashIn  
 {  
     "user_id": 1,  
-    "sum": 1200
+    "sum": 1200  
 } 
 
 2. списание средств
@@ -14,7 +14,7 @@ post
 http://localhost/LaravelBalances/public/api/cashOut  
 {  
     "user_id": 1,  
-    "sum": 1200
+    "sum": 1200  
 } 
 
 3. перевод
@@ -23,7 +23,7 @@ http://localhost/LaravelBalances/public/api/transfer
 {  
     "user_id": 1,  
     "sum": 12,
-    "user_id_transfer" : 2
+    "user_id_transfer" : 2  
 } 
 
 4. получение баланса
@@ -41,7 +41,7 @@ http://localhost/LaravelBalances/public/api/listTransactions
     "user_id": 1,  
     "orderSum": true,
     "filterDate" : true,
-	"created_at": "2024-12-01"
+    "created_at": "2024-12-01"  
 } 
   
   
