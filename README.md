@@ -1,50 +1,4 @@
 
-Ендпоинты для тестирования в postman:
-
-1. зачисление средств
-post
-http://localhost/LaravelBalances/public/api/cashIn  
-{  
-    "user_id": 1,  
-    "sum": 1200  
-} 
-
-2. списание средств
-post
-http://localhost/LaravelBalances/public/api/cashOut  
-{  
-    "user_id": 1,  
-    "sum": 1200  
-} 
-
-3. перевод
-post
-http://localhost/LaravelBalances/public/api/transfer  
-{  
-    "user_id": 1,  
-    "sum": 12,  
-    "user_id_transfer" : 2  
-} 
-
-4. получение баланса
-get
-http://localhost/LaravelBalances/public/api/getBalance?user_id=1
-
-5. конвертация валюты
-get
-http://localhost/LaravelBalances/public/api/currencyConverter?user_id=1
-
-6. список транзакций
-get
-http://localhost/LaravelBalances/public/api/listTransactions  
-{  
-    "user_id": 1,    
-    "orderSum": true,  
-    "filterDate" : true,  
-    "created_at": "2024-12-01"  
-} 
-  
-  
 Для запуска проекта необходимо:
 
 1.  в консоле перейти в директорию, куда будет скачиваться репозиторий
@@ -59,4 +13,52 @@ http://localhost/LaravelBalances/public/api/listTransactions
 5.  создать миграции:  
     php artisan migrate  
 6.  запустить проект:  
-    перейти в браузере на localhost
+    перейти в браузере на ендпоинты  
+    
+Ендпоинты для тестирования в postman:
+
+1. зачисление средств
+post
+http://localhost/api/cashIn  
+{  
+    "user_id": 1,  
+    "sum": 1200  
+} 
+
+2. списание средств
+post
+http://localhost/api/cashOut  
+{  
+    "user_id": 1,  
+    "sum": 1200  
+} 
+
+3. перевод
+post
+http://localhost/api/transfer  
+{  
+    "user_id": 1,  
+    "sum": 12,  
+    "user_id_transfer" : 2  
+} 
+
+4. получение баланса
+get
+http://localhost/api/getBalance?user_id=1
+
+5. конвертация валюты
+get
+http://localhost/api/currencyConverter?user_id=1
+
+6. список транзакций
+get
+http://localhost/api/listTransactions  
+{  
+    "user_id": 1,    
+    "orderSum": true,  
+    "filterDate" : true,  
+    "created_at": "2024-12-01"  
+} 
+  
+  
+
