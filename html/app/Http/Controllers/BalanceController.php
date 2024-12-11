@@ -102,12 +102,15 @@ class BalanceController extends Controller
     //получение баланса
     public function getBalance(Request $request) {
 
-        $data = DB::table('balances')->select('sum')->where('user_id', '=', $request->user_id)->sum('sum');
+        if (DB::table('balances')->where('user_id', '=', $request->user_id)->exists()) {
 
-        return response()->json([
-            'status' => true,
-            'balance' => $data
-        ], 200);
+            $data = DB::table('balances')->select('sum')->where('user_id', '=', $request->user_id)->sum('sum');
+
+            return response()->json([
+                'status' => true,
+                'balance' => $data
+            ], 200);
+        }
     }
 
     //Доп. задание 1
@@ -125,6 +128,8 @@ class BalanceController extends Controller
         curl_close($ch);
         
         $return = json_decode($json, true);
+        return $return;
+
         $amount = $amount * $return->rates[$request->currency];
 
         return response()->json([
@@ -137,7 +142,7 @@ class BalanceController extends Controller
     //Доп. задание 2
     public function listTransactions(Request $request) {
 
-        $query = DB::table('balances')->select('user_id', 'sum', 'user_id_transfer');
+        $query = DB::table('balances')->select('user_id', 'sum', 'status', 'user_id_transfer');
         $query->where('user_id', '=', $request->user_id);
         
         if (!empty($request->orderSum)) {
