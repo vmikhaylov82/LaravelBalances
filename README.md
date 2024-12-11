@@ -3,7 +3,7 @@
 
 1. зачисление средств
 post
-http://localhost/LaravelBalances/public/api/cashIn
+http://localhost/LaravelBalances/public/api/cashIn  
 {  
     "user_id": 1,  
     "sum": 1200
@@ -11,7 +11,7 @@ http://localhost/LaravelBalances/public/api/cashIn
 
 2. списание средств
 post
-http://localhost/LaravelBalances/public/api/cashOut
+http://localhost/LaravelBalances/public/api/cashOut  
 {  
     "user_id": 1,  
     "sum": 1200
@@ -19,7 +19,7 @@ http://localhost/LaravelBalances/public/api/cashOut
 
 3. перевод
 post
-http://localhost/LaravelBalances/public/api/transfer
+http://localhost/LaravelBalances/public/api/transfer  
 {  
     "user_id": 1,  
     "sum": 12,
@@ -36,7 +36,7 @@ http://localhost/LaravelBalances/public/api/currencyConverter?user_id=1
 
 6. список транзакций
 get
-http://localhost/LaravelBalances/public/api/listTransactions
+http://localhost/LaravelBalances/public/api/listTransactions  
 {  
     "user_id": 1,  
     "orderSum": true,
