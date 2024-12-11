@@ -48,7 +48,7 @@ http://localhost/api/getBalance?user_id=1
 
 5. конвертация валюты
 get
-http://localhost/api/currencyConverter?user_id=1
+http://localhost/api/currencyConverter?user_id=1&currency=USD
 
 6. список транзакций
 get
