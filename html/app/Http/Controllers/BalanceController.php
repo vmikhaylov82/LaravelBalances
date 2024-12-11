@@ -116,25 +116,24 @@ class BalanceController extends Controller
     //Доп. задание 1
     public function currencyConverter(Request $request) {
 
-        $access_key = 'f26397585b23d554fa4c835018242f88';
-        $amount = DB::table('balances')->select('sum')->where('user_id', '=', $request->user_id)->sum('sum');
+        $access_key = 'fca_live_IyK4rM6VghOi254WMp5ebpZr7MFAIOT0lN3GuTjF';
+        $data = DB::table('balances')->select('sum')->where('user_id', '=', $request->user_id)->sum('sum');
 
-        //return 'https://api.exchangeratesapi.io/v1/latest?access_key='.$access_key.'&base=RUB&symbols='.$request->currency.'';
+        //return 'https://api.freecurrencyapi.com/v1/latest?apikey='.$access_key.'&base_currency=RUB&currencies='.$request->currency.'';
 
-        $ch = curl_init('https://api.exchangeratesapi.io/v1/latest?access_key='.$access_key.'&base=RUB&symbols='.$request->currency.'');
+        $ch = curl_init('https://api.freecurrencyapi.com/v1/latest?apikey='.$access_key.'&base_currency=RUB&currencies='.$request->currency.'');
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
         $json = curl_exec($ch);
         curl_close($ch);
         
         $return = json_decode($json, true);
-        return $return;
-
-        $amount = $amount * $return->rates[$request->currency];
+        $balance = $data * $return["data"][$request->currency];
+        $balance = round($balance);
 
         return response()->json([
             'status' => true,
-            'balance' => $amount,
+            'balance' => $balance,
             'currency' => $request->currency
         ], 200);
     }
