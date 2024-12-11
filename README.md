@@ -22,7 +22,7 @@ post
 http://localhost/LaravelBalances/public/api/transfer  
 {  
     "user_id": 1,  
-    "sum": 12,
+    "sum": 12,  
     "user_id_transfer" : 2  
 } 
 
@@ -38,9 +38,9 @@ http://localhost/LaravelBalances/public/api/currencyConverter?user_id=1
 get
 http://localhost/LaravelBalances/public/api/listTransactions  
 {  
-    "user_id": 1,  
-    "orderSum": true,
-    "filterDate" : true,
+    "user_id": 1,    
+    "orderSum": true,  
+    "filterDate" : true,  
     "created_at": "2024-12-01"  
 } 
   
